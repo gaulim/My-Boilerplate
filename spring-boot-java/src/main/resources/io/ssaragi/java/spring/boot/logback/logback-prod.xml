@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration debug="false" scan="false" scanPeriod="30 seconds" packagingData="false">
+
+    <include resource="org/springframework/boot/logging/logback/base.xml"/>
+
+    <!-- 로그파일 경로 -->
+    <property scope="context" name="LOG_PATH" value="/WAS/spring-boot-java/logs" />
+
+    <!-- 로그 패턴 -->
+    <!--<property name="LOG_PATTERN" value="${FILE_LOG_PATTERN:-%d{yyyy-MM-dd HH:mm:ss.SSS} ${LOG_LEVEL_PATTERN:-%5p} ${PID:- } -&#45;&#45; [%t] %-40.40logger{39} : %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}}"/>-->
+    <property name="LOG_PATTERN" value="%d{HH:mm:ss.SSS} %-5level %-4relative [%thread] --- %msg%n"/>
+
+    <!-- 파일 패턴 (확장자 제외) -->
+    <property name="FILE_PATTERN" value="${LOG_PATH}/today"/>
+    <property name="ROLLING_FILE_PATTERN" value="${LOG_PATH}/%d{yyyy-MM-dd}.%i"/>
+
+    <!-- 'FILE' appender -->
+    <property name="FILE_FILTER_LEVEL" value="INFO" />
+    <include resource="io/ssaragi/java/spring/boot/logback/appender/file-appender.xml" />
+
+    <logger name="io.ssaragi.java.spring.boot" level="INFO" additivity="false">
+        <appender-ref ref="FILE" />
+    </logger>
+
+    <root level="WARN" />
+
+</configuration>
