@@ -58,13 +58,13 @@ gradle wrapper --gradle-version=<그래들버전>
 빌드시 jar 배포본이 생성되는 위치는 `<프로젝트루트>/build/libs` 이다.
 
 ```
-mkdir -p /tmp/<프로젝트명>
-nohub java [옵션] -jar <배포파일.jar> > /tmp/<프로젝트명>/output.log 2>&1 & echo $! > /tmp/<프로젝트명>/.pid
+cd <서버배포경로>
+nohub java [옵션] -jar <배포파일.jar> > /dev/null 2>&1 & echo $! > .pid
 ```
 
 3-6. 서버에서 백그라운드로 실행중인 프로세스를 중지
 
 ```
-kill `cat /tmp/<프로젝트명>/.pid`
-rm /tmp/<프로젝트명>/.pid
+kill `cat <서버배포경로>/.pid`
+rm <서버배포경로>/.pid
 ```
