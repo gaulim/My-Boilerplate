@@ -13,15 +13,12 @@ public class EchoController {
 
     private static final String URL = "/v1/echo";
 
-    ////////////////////////////////////////////////////////////////////////////
-    // 유틸 함수
-
     // 클래스/함수 이름 출력용 유틸 메서드
     private void logFuncTitle(String funcTitle) {
 
         if ( log.isTraceEnabled() ) {
             final String className = this.getClass().getSimpleName();
-            final String funcName = Thread.currentThread().getStackTrace()[1].getMethodName();
+            final String funcName = Thread.currentThread().getStackTrace()[2].getMethodName();
             if ( funcTitle == null )
                 log.trace("== {}:{} ==", className, funcName);
             else
@@ -31,9 +28,6 @@ public class EchoController {
         // 함수 제목이 null 이 아닌 경우에만 로그로 출력
         if ( funcTitle != null ) log.info(funcTitle);
     }
-
-    ////////////////////////////////////////////////////////////////////////////
-    // API 컨트롤러
 
     /**
      * POST 에코 요청

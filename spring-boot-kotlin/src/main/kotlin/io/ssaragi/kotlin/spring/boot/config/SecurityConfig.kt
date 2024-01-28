@@ -17,7 +17,7 @@ class SecurityConfig {
         return http
             .csrf { it.disable() }
             .authorizeHttpRequests { request -> request
-                .requestMatchers("/*/echo/*")
+                .requestMatchers("/*/echo/*", "/*/exam", "/*/exam/*")
                 .permitAll()
                 .anyRequest()
                 .authenticated()

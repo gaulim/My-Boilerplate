@@ -3,13 +3,13 @@ package io.ssaragi.kotlin.spring.boot.controller.exam
 import io.github.oshai.kotlinlogging.KotlinLogging
 import org.springframework.web.bind.annotation.*
 
-private val log = KotlinLogging.logger {}
-
-private inline fun <reified T> T.className(): String = T::class.simpleName.toString()
-
 @RestController
 @RequestMapping("/v1/echo")
 class EchoController {
+
+    private val log = KotlinLogging.logger {}
+
+    private inline fun <reified T> T.className(): String = T::class.simpleName.toString()
 
     companion object {
         const val URL: String = "/v1/echo"
