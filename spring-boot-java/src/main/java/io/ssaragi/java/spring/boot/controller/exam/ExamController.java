@@ -7,12 +7,14 @@ import io.ssaragi.java.spring.boot.dto.response.BaseApiResponseModel;
 import io.ssaragi.java.spring.boot.dto.response.exam.ExamDataResModel;
 import io.ssaragi.java.spring.boot.dto.response.exam.ExamListResModel;
 import io.ssaragi.java.spring.boot.service.exam.ExamService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.UUID;
 
+@Tag(name = "예제", description = "예제 기능 구성")
 @Slf4j
 @RestController
 @RequestMapping(value = "/v1/exam")

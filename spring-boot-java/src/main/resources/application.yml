@@ -1,0 +1,13 @@
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html # Swagger HTML 문서 경로
+    groups-order: ASC
+    operationsSorter: alpha # API 메서드 정렬 순서 (alpha: 알파벳순, method: HTTP 메서드 순)
+    disable-swagger-default-url: true
+    display-request-duration: true
+  api-docs:
+    path: /api-docs # OpenAPI 3으로 JSON 형식의 API 문서 경로
+  version: v1
+  show-actuator: true
+  default-consumes-media-type: application/json
+  default-produces-media-type: application/json
